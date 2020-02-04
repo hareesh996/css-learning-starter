@@ -7,23 +7,40 @@ Dark green: #28b485
 
 */
 
-* {
+* ,
+*::after,
+*::before{
  /**
     This makes sure that no margins or padding are applied by the user
     by default. Like example: h1, h2 --> has default css.
  */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /**
+    Inheriting from the body element.
+    */
+    box-sizing: inherit;
 }
+
+html {
+    /** 
+     We are providing in percentage so that the the default size of the
+     font size changes based on the view that the application viewed. Example: If the user zooms in then 
+     the application fontsize changes. If we provide in pixel, then we will have problem because the appplication the default font-size still not changed
+     event after zooming in.
+    */
+    font-size: 62.5%;
+}
+
 
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.6em;
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 }
 
 .header {
@@ -37,14 +54,14 @@ body {
     position: relative;
 }
 
-.logo-box{
+.header__logo-box{
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
-.logo{
-    height: 35px;
+.header__logo{
+    height: 3.5rem;
 }
 
 .heading-primary{
@@ -55,29 +72,29 @@ body {
 }
 
 
-.heading-primary-main{
+.heading-primary--main{
     display: block;
     font-size: 50px;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     
     animation-name : moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
 }
 
-.heading-primary-sub{
+.heading-primary--sub{
     display: block;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-weight: 100;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
 
     animation-name : moveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-in;
 }
 
-.text-box{
+.header__text-box{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -89,12 +106,12 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
     80% {
         opacity: 0.5;
-        transform: translateX(20px);
+        transform: translateX(2rem);
     }
 
     100%{
@@ -106,12 +123,12 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     80% {
         opacity: 0.5;
-        transform: translateX(-20px);
+        transform: translateX(-2rem);
     }
 
     100%{
@@ -125,27 +142,27 @@ body {
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;
-    margin-top: 20px ;
+    border-radius: 10rem;
+    margin-top: 2rem ;
     transition: all 0.2s;
     position: relative;
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
 }
 
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
 }
 
 .btn::after {
@@ -153,7 +170,7 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -162,7 +179,7 @@ body {
 }
 
 
-.btn-white::after {
+.btn--white::after {
     content: '';
     display: inline-block;
     color: #fff;
@@ -178,10 +195,10 @@ body {
 @keyframes moveInBottom{
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
     80% {
-        transform: translateY(10px);
+        transform: translateY(1rem);
     }
     100% {
         opacity: 1;
@@ -189,9 +206,19 @@ body {
     }
 }
 
-.btn-animted {
+.btn--animted {
     backface-visibility: false;
     animation: moveInBottom 1s ease-in 0.90;
     animation-fill-mode: backwards;
 }
+    
 
+/**
+Block Element Modifier
+Block standalone componnt that is meaningful on its own. --> reciepe
+Element: part of a block that has no standalone meaning. --> reciepe__info
+Modifier: a different version of a block or an element. --> reciepe__info-rounded, reciepe__info-1
+base/
+components.
+
+*/
