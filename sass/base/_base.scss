@@ -1,0 +1,30 @@
+* ,
+*::after,
+*::before{
+ /**
+    This makes sure that no margins or padding are applied by the user
+    by default. Like example: h1, h2 --> has default css.
+ */
+    margin: 0;
+    padding: 0;
+    /**
+    Inheriting from the body element.
+    */
+    box-sizing: inherit;
+}
+
+html {
+    /** 
+     We are providing in percentage so that the the default size of the
+     font size changes based on the view that the application viewed. Example: If the user zooms in then 
+     the application fontsize changes. If we provide in pixel, then we will have problem because the appplication the default font-size still not changed
+     event after zooming in.
+    */
+    font-size: 62.5%;
+}
+
+
+body {
+    padding: 3rem;
+    box-sizing: border-box;
+}

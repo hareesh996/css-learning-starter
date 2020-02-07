@@ -1,0 +1,25 @@
+@import 'abstracts/fucntions';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+@import 'base/animated';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utilities';
+
+@import 'components/button';
+
+@import 'layout/header';
+
+@import 'pages/home';
+
+
+/**
+Block Element Modifier
+Block standalone componnt that is meaningful on its own. --> reciepe
+Element: part of a block that has no standalone meaning. --> reciepe__info
+Modifier: a different version of a block or an element. --> reciepe__info-rounded, reciepe__info-1
+base/
+components.
+
+*/

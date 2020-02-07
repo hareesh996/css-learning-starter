@@ -6,166 +6,135 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-
-* ,
+*,
 *::after,
-*::before{
- /**
+*::before {
+  /**
     This makes sure that no margins or padding are applied by the user
     by default. Like example: h1, h2 --> has default css.
  */
-    margin: 0;
-    padding: 0;
-    /**
+  margin: 0;
+  padding: 0;
+  /**
     Inheriting from the body element.
     */
-    box-sizing: inherit;
-}
+  box-sizing: inherit; }
 
 html {
-    /** 
+  /** 
      We are providing in percentage so that the the default size of the
      font size changes based on the view that the application viewed. Example: If the user zooms in then 
      the application fontsize changes. If we provide in pixel, then we will have problem because the appplication the default font-size still not changed
      event after zooming in.
     */
-    font-size: 62.5%;
-}
-
+  font-size: 62.5%; }
 
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size: 1.6em;
-    line-height: 1.7;
-    color: #777;
-    padding: 3rem;
-    box-sizing: border-box;
-}
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6em;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box; }
 
 .header {
-    height: 95vh;
-    /* adding gradient to have the color on top of the image. Decrease the opaque for the colors to have the transparent color
+  height: 95vh;
+  /* adding gradient to have the color on top of the image. Decrease the opaque for the colors to have the transparent color
     for the gradient. */
-    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.822), hsla(160, 64%, 43%, 0.808)),url('../img/hero.jpg');
-    background-size: cover;
-    background-position: top;
-    clip-path: polygon(0 0, 100% 0 , 100% 75%, 0 100%);
-    position: relative;
-}
-
-.header__logo-box{
+  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.822), rgba(40, 180, 133, 0.808)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  position: relative; }
+  .header__logo-box {
     position: absolute;
     top: 4rem;
-    left: 4rem;
-}
-
-.header__logo{
-    height: 3.5rem;
-}
-
-.heading-primary{
-    color: #fff;
-    text-transform: uppercase;
-    /*  This fixes the animation shaking */
-    backface-visibility: hidden;
-}
-
-
-.heading-primary--main{
-    display: block;
-    font-size: 50px;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    
-    animation-name : moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-}
-
-.heading-primary--sub{
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 100;
-    letter-spacing: 1.75rem;
-
-    animation-name : moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-}
-
-.header__text-box{
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
     position: absolute;
     top: 50%;
     left: 50%;
     /* Translating to -50% so that the element is at the center exactly*/
     transform: translate(-50%, -50%);
-    text-align: center;
-}
+    text-align: center; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /*  This fixes the animation shaking */
+  backface-visibility: hidden; }
+  .heading-primary--main {
+    display: block;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 1.75rem;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-in; }
 
 @keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-
-    80% {
-        opacity: 0.5;
-        transform: translateX(2rem);
-    }
-
-    100%{
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    opacity: 0.5;
+    transform: translateX(2rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
 
 @keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(10rem);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    opacity: 0.5;
+    transform: translateX(-2rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
 
-    80% {
-        opacity: 0.5;
-        transform: translateX(-2rem);
-    }
-
-    100%{
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* This is needed to override the browser default css style for the link*/
-.btn:link, 
-.btn:visited {
+.btn {
+  /* This is needed to override the browser default css style for the link*/ }
+  .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
     display: inline-block;
     border-radius: 10rem;
-    margin-top: 2rem ;
+    margin-top: 2rem;
     transition: all 0.2s;
-    position: relative;
-}
-
-.btn--white {
+    position: relative; }
+  .btn--white {
     background-color: #fff;
-    color: #777;
-}
-
-.btn:hover {
+    color: #777; }
+    .btn--white::after {
+      content: '';
+      display: inline-block;
+      color: #fff; }
+  .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
-}
-
-.btn:active {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      content: '';
+      display: inline-block;
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
-}
-
-.btn::after {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn::after {
     content: '';
     display: inline-block;
     height: 100%;
@@ -175,43 +144,21 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
-    transition: all 0.4s;
-}
-
-
-.btn--white::after {
-    content: '';
-    display: inline-block;
-    color: #fff;
-}
-
-.btn:hover::after {
-    content: '';
-    display: inline-block;
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
-@keyframes moveInBottom{
-    0% {
-        opacity: 0;
-        transform: translateY(3rem);
-    }
-    80% {
-        transform: translateY(1rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-.btn--animted {
+    transition: all 0.4s; }
+  .btn--animted {
     backface-visibility: false;
     animation: moveInBottom 1s ease-in 0.90;
-    animation-fill-mode: backwards;
-}
-    
+    animation-fill-mode: backwards; }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  80% {
+    transform: translateY(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 /**
 Block Element Modifier
