@@ -6,6 +6,38 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    opacity: 0.5;
+    transform: translateX(2rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    opacity: 0.5;
+    transform: translateX(-2rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  80% {
+    transform: translateY(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
 *,
 *::after,
 *::before {
@@ -30,80 +62,71 @@ html {
   font-size: 62.5%; }
 
 body {
+  padding: 3rem;
+  box-sizing: border-box; }
+
+body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 1.6em;
   line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
+  color: #777; }
 
-.header {
-  height: 95vh;
-  /* adding gradient to have the color on top of the image. Decrease the opaque for the colors to have the transparent color
-    for the gradient. */
-  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.822), rgba(40, 180, 133, 0.808)), url("../img/hero.jpg");
-  background-size: cover;
-  background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  position: relative; }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /* Translating to -50% so that the element is at the center exactly*/
-    transform: translate(-50%, -50%);
-    text-align: center; }
-
-.heading-primary {
-  color: #fff;
+.heading-secondary {
+  font-size: 3rem;
   text-transform: uppercase;
-  /*  This fixes the animation shaking */
-  backface-visibility: hidden; }
-  .heading-primary--main {
-    display: block;
-    font-size: 50px;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out; }
-  .heading-primary--sub {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 100;
-    letter-spacing: 1.75rem;
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-in; }
+  font-weight: 700;
+  background-image: linear-gradient(to right, #55c57a, #28b485);
+  display: inline-block;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(10deg);
+    text-shadow: 1rem 0.5rem 1rem #28b384; }
 
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem); }
-  80% {
-    opacity: 0.5;
-    transform: translateX(2rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
+.heading-tertiary {
+  font-size: 1.6rem;
+  color: #777;
+  font-weight: 700;
+  text-transform: uppercase; }
 
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    opacity: 0.5;
-    transform: translateX(-2rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
+.paragraph {
+  font-size: 1.6rem;
+  color: #777; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 4rem; }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-1 {
+  margin-bottom: 1rem; }
+
+.u-margin-bottom-2 {
+  margin-bottom: 2rem; }
+
+.u-margin-bottom-3 {
+  margin-bottom: 3rem; }
+
+.u-margin-bottom-4 {
+  margin-bottom: 4rem; }
+
+.u-margin-bottom-5 {
+  margin-bottom: 5rem; }
+
+.u-margin-bottom-6 {
+  margin-bottom: 6rem; }
+
+.u-margin-bottom-7 {
+  margin-bottom: 7rem; }
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
+
+.u-margin-bottom-9 {
+  margin-bottom: 9rem; }
 
 .btn {
   /* This is needed to override the browser default css style for the link*/ }
@@ -150,15 +173,124 @@ body {
     animation: moveInBottom 1s ease-in 0.90;
     animation-fill-mode: backwards; }
 
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  80% {
-    transform: translateY(1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
+.btn-text:link, .btn-text:visited {
+  font-size: 1.6rem;
+  text-decoration: none;
+  border-bottom: #7ed56f solid;
+  color: #7ed56f;
+  padding: 0.5rem;
+  font-weight: 700; }
+
+.btn-text:hover {
+  background-color: #7ed56f;
+  color: #fff;
+  box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px); }
+
+.btn-text:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(0); }
+
+.composition {
+  position: relative; }
+  .composition__photo {
+    width: 50%;
+    position: absolute;
+    transition: all .2s;
+    outline-offset: 1rem; }
+    .composition__photo:hover {
+      outline: 1rem solid #7ed56f;
+      transform: scale(1.1);
+      z-index: 1;
+      box-shadow: -1rem 2rem 2rem #777; }
+    .composition__photo-p1 {
+      top: -2rem;
+      left: 0; }
+    .composition__photo-p2 {
+      left: 20rem;
+      top: 1rem; }
+    .composition__photo-p3 {
+      top: 8rem;
+      left: 9rem; }
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.9); }
+
+.header {
+  height: 95vh;
+  /* adding gradient to have the color on top of the image. Decrease the opaque for the colors to have the transparent color
+    for the gradient. */
+  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.822), rgba(40, 180, 133, 0.808)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Translating to -50% so that the element is at the center exactly*/
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /*  This fixes the animation shaking */
+  backface-visibility: hidden; }
+  .heading-primary--main {
+    display: block;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 1.75rem;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-in; }
+
+.row {
+  max-width: 114rem;
+  color: #eee;
+  margin: 0 auto; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row .col-1-of-2 {
+    width: calc( (100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc( (100% - (2 * 6rem)) / 3); }
+  .row .col-2-of-3 {
+    width: calc( ( 2 * ( (100% - ( 2 * 6rem) ) / 3 ) ) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc( (100% - ( 3* 6rem)) / 4); }
+  .row .col-2-of-4 {
+    width: calc( ( 2 * ( (100% -  3 * 6rem) / 4) ) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc( ( 3 * ( (100% -  3 * 6rem) / 4) ) + 2 * 6rem); }
+
+.section-about {
+  background-color: #f7f7f7;
+  padding: 15rem 0 15rem 0;
+  margin-top: -20vh; }
 
 /**
 Block Element Modifier

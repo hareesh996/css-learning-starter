@@ -1,0 +1,12 @@
+// text center
+.u-center-text{
+    text-align: center;
+}
+
+@for $var from 1 to 10 {
+ // margins
+    .u-margin-bottom-#{$var}{
+        margin-bottom: #{$var}rem;
+    } 
+}
+
